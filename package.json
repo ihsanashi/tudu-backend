@@ -1,0 +1,22 @@
+{
+  "name": "tudu-backend",
+  "version": "1.0.0",
+  "description": "Backend service running in Node.js environment, utilizing Express server and Postgresql as the database for a to-do list project.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "serve": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Ahmad Ihsan",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.10"
+  }
+}
