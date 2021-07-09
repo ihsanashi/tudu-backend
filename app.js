@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import logger from 'morgan';
 import todoRoutes from './routes/todos.js';
 
 const app = express();
@@ -7,6 +8,7 @@ const PORT = process.env.PORT || 8080;
 
 // middlwares
 app.use(cors());
+app.use(logger('dev'));
 app.use(express.json());
 app.use(todoRoutes);
 
