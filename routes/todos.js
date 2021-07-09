@@ -13,7 +13,7 @@ router.get('/api/v1/todos/:id', (req, res) => {
 });
 
 // Create a new todo item
-router.post('/api/v1/todos/:id', (req, res) => {
+router.post('/api/v1/todos', (req, res) => {
   res.send('Adding a new todo');
 });
 
