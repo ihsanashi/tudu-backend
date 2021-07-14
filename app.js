@@ -7,7 +7,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const todoRoutes = require('./routes/todos');
-const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -24,10 +23,9 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use('/api/v1/todos', todoRoutes);
-app.use('/api/v1/auth', authRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Hello there!');
+  res.send('Hello there, nothing to see here!');
 });
 
 app.listen(PORT, () => {
