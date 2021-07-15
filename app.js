@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -20,6 +21,7 @@ mongoose.connect(
 
 // middlwares
 app.use(cors());
+app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
 app.use('/api/v1/todos', todoRoutes);
