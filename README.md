@@ -10,13 +10,13 @@
 
 ## Introduction
 
-This project ~~serves~~ will serve as a REST API for [Tudu](https://github.com/ihsanashi/react-tudu), a to-do list frontend application. It was built with Node.js, Express, MongoDB, and the routes are secured with Auth0 and JWT.
+This project ~~serves~~ will serve as a REST API for [Tudu](https://github.com/ihsanashi/react-tudu), a to-do list frontend application I had made with React and Tailwind CSS. It was built with Node.js, Express, MongoDB, and the routes are secured with Auth0 and JWT.
 
 ## Technologies
 
 - Node.js, backend JavaScript runtime environment
 - Express, a minimal Node.js web application framework
-- MongoDB, a NoSQL database using JSON-like collections and documents instead of tables, rows and columns often seein with SQL type databases
+- MongoDB, a NoSQL database using JSON-like collections and documents instead of tables, rows and columns often seen with SQL type databases
 - Mongoose, an object modeling tool for MongoDB, and for connecting to MongoDB Atlas
 - Auth0, an adaptable authentication and authorization platform with excellent docs!
 
