@@ -10,7 +10,7 @@
 
 ## Introduction
 
-This project serves as a REST API for [Tudu](https://github.com/ihsanashi/react-tudu), a to-do list frontend application. It was built with Node.js, Express, MongoDB, and the routes are secured with Auth0 and JWT.
+This project ~~serves~~ will serve as a REST API for [Tudu](https://github.com/ihsanashi/react-tudu), a to-do list frontend application. It was built with Node.js, Express, MongoDB, and the routes are secured with Auth0 and JWT.
 
 ## Technologies
 
