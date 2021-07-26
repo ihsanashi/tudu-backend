@@ -24,12 +24,18 @@ const checkJwt = jwt({
   algorithms: ['RS256'],
 });
 
-// Connect to DB
-mongoose.connect(
-  process.env.DB_CONNECT,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log('Connected to MongoDB Atlas')
-);
+// Connect to DB and start server
+mongoose
+  .connect(process.env.DB_CONNECT, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(PORT, () => {
+      console.log(`Backend service running on port ${PORT}`);
+    })
+  )
+  .catch((error) => console.log(error.message));
 
 app.get('/', (req, res) => {
   res.send('Hello there, nothing to see here!');
@@ -42,7 +48,3 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(checkJwt);
 app.use('/api/v1/todos', todoRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Backend service running on port ${PORT}`);
-});
