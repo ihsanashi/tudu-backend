@@ -31,6 +31,10 @@ mongoose.connect(
   () => console.log('Connected to MongoDB Atlas')
 );
 
+app.get('/', (req, res) => {
+  res.send('Hello there, nothing to see here!');
+});
+
 // middlwares
 app.use(cors());
 app.use(helmet());
@@ -38,10 +42,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(checkJwt);
 app.use('/api/v1/todos', todoRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Hello there, nothing to see here!');
-});
 
 app.listen(PORT, () => {
   console.log(`Backend service running on port ${PORT}`);
