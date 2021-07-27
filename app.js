@@ -4,7 +4,6 @@ const helmet = require('helmet');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const checkJwt = require('./utils/checkJwt');
 const app = express();
 const todoRoutes = require('./routes/todos');
 
@@ -33,7 +32,6 @@ app.use(cors());
 app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(checkJwt);
 app.use('/api/v1/todos', todoRoutes);
 app.use('*', (req, res) => {
   res.status(404).json({ error: 'Resource not found' });
