@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   res.send('Hello there, nothing to see here!');
 });
 
-// middlwares
+// middlewares
 app.use(cors());
 app.use(helmet());
 app.use(logger('dev'));
