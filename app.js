@@ -10,6 +10,9 @@ const todoRoutes = require('./routes/todos');
 const PORT = process.env.PORT || 8080;
 dotenv.config();
 
+// cors
+app.use(cors());
+
 // Connect to DB and start server
 mongoose
   .connect(process.env.DB_CONNECT, {
@@ -28,7 +31,6 @@ app.get('/', (req, res) => {
 });
 
 // middlewares
-app.use(cors());
 app.use(helmet());
 app.use(logger('dev'));
 app.use(express.json());

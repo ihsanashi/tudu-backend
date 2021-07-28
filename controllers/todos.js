@@ -3,12 +3,6 @@ const Todo = require('../models/todo');
 const getAllTodos = async (req, res) => {
   try {
     const todo = await Todo.find();
-    res.header(
-      'Access-Control-Allow-Origin',
-      process.env.NODE_ENV === 'production'
-        ? 'https://tudu-backend-api.herokuapp.com/'
-        : 'http://localhost:8080/api/v1/todos'
-    );
     res.status(200).json(todo);
   } catch (error) {
     res.status(404).json({ message: error.message });
