@@ -13,7 +13,7 @@ const {
 router.get('/', checkJwt, jwtAuthz(['read:todos']), getAllTodos);
 
 // Get a single todo item
-router.get('/:id', checkJwt, jwtAuthz(['read:todo']), getSingleTodo);
+router.get('/:id', checkJwt, jwtAuthz(['read:todos']), getSingleTodo);
 
 // Create a new todo item
 router.post('/', checkJwt, jwtAuthz(['create:todos']), postNewTodo);
