@@ -2,8 +2,8 @@ const Todo = require('../models/todo');
 
 const getAllTodos = async (req, res) => {
   try {
-    const todo = await Todo.find();
-    res.status(200).json(todo);
+    const todos = await Todo.find();
+    res.status(200).json(todos);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
