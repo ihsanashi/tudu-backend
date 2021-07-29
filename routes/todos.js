@@ -9,19 +9,21 @@ const {
   deleteTodo,
 } = require('../controllers/todos');
 
+const checkScopes = jwtAuthz(['manage:todos']);
+
 // Get all todos
-router.get('/', checkJwt, jwtAuthz(['read:todos']), getAllTodos);
+router.get('/', checkJwt, checkScopes, getAllTodos);
 
 // Get a single todo item
-router.get('/:id', checkJwt, jwtAuthz(['read:todos']), getSingleTodo);
+router.get('/:id', checkJwt, checkScopes, getSingleTodo);
 
 // Create a new todo item
-router.post('/', checkJwt, jwtAuthz(['create:todos']), postNewTodo);
+router.post('/', checkJwt, checkScopes, postNewTodo);
 
 // Update an existing todo item
-router.put('/:id', checkJwt, jwtAuthz(['update:todo']), updateTodo);
+router.put('/:id', checkJwt, checkScopes, updateTodo);
 
 // Delete a todo item
-router.delete('/:id', checkJwt, jwtAuthz(['delete:todo']), deleteTodo);
+router.delete('/:id', checkJwt, checkScopes, deleteTodo);
 
 module.exports = router;
