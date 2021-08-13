@@ -6,13 +6,17 @@ const Todo = mongoose.Schema(
       type: String,
       required: true,
     },
-    content: {
+    description: {
       type: String,
       required: false,
     },
     isCompleted: {
       type: Boolean,
       default: false,
+    },
+    userId: {
+      type: String,
+      required: true,
     },
     createdAt: {
       type: Date,
