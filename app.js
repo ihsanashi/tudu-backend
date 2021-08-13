@@ -38,3 +38,11 @@ app.use('/api/v1/todos', todoRoutes);
 app.use('*', (req, res) => {
   res.status(404).json({ error: 'Resource not found' });
 });
+
+// error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  return res
+    .status(err.status)
+    .json({ message: err.message, 'status code': err.status });
+});
