@@ -21,7 +21,7 @@ router.get('/:id', checkJwt, checkScopes, getSingleTodo);
 router.post('/', checkJwt, checkScopes, postNewTodo);
 
 // Update an existing todo item
-router.put('/:id', checkJwt, checkScopes, updateTodo);
+router.patch('/:id', checkJwt, checkScopes, updateTodo);
 
 // Delete a todo item
 router.delete('/:id', checkJwt, checkScopes, deleteTodo);
