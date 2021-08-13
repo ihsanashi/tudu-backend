@@ -18,7 +18,7 @@ const getSingleTodo = async (req, res) => {
   try {
     let todoItem = await Todo.findById(req.params.id);
     if (todoItem == null) {
-      return res.status(404).json({ message: 'Todo item not found' });
+      return res.status(404).json({ message: 'Todo item does not exist' });
     }
 
     return res.status(200).json(todoItem);
@@ -50,16 +50,30 @@ const postNewTodo = async (req, res) => {
   }
 };
 
-// TODO! Work on this update todo function
 const updateTodo = async (req, res) => {
-  res.send('Update a todo');
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
+    const options = { new: true };
+
+    const result = await Todo.findByIdAndUpdate(id, updatedData, options);
+
+    if (!result) {
+      return res.status(404).json({
+        message: 'Todo item does not exist',
+      });
+    }
+    return res.status(200).json({ result });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
 };
 
 const deleteTodo = async (req, res) => {
   try {
     let todoItem = await Todo.findByIdAndDelete(req.params.id);
     if (todoItem == null) {
-      return res.status(404).json({ message: 'Todo item not found' });
+      return res.status(404).json({ message: 'Todo item does not exist' });
     }
 
     return res.status(200).json({
