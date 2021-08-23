@@ -1,16 +1,13 @@
 const Todo = require('../models/todo');
 
 const getAllTodos = async (req, res) => {
-  const { userId } = req.body;
+  const userId = req.user.sub;
+
   try {
-    if (!userId)
-      return res.status(400).json({
-        message: `Bad request. 'userId' field is required to be a part of request body to query the database.`,
-      });
     const todos = await Todo.find({ userId });
     return res.status(200).json(todos);
   } catch (error) {
-    return res.status(404).json({ message: error.message });
+    return res.status(error.status).json({ message: error.message });
   }
 };
 
@@ -28,7 +25,8 @@ const getSingleTodo = async (req, res) => {
 };
 
 const postNewTodo = async (req, res) => {
-  const { title, description, userId } = req.body;
+  const { title, description } = req.body;
+  const userId = req.user.sub;
 
   const todoItem = new Todo({
     title,
